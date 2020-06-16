@@ -1,32 +1,28 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
+  <div id="app">    
+    <!--加载导航栏组件-->
+    <HeaderNav v-if="$route.meta.showHeaderTop"/>
+    <HeaderSreach v-if="$route.meta.showHeaderSreach"/>
+    <!--挂载所有路由 -->
     <router-view />
   </div>
 </template>
 
-<style lang="less">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+import HeaderNav from "./components/HeaderNav"
+import HeaderSreach from "./components/HeaderSreach"
 
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+export default {
+  components:{
+    HeaderNav,
+    HeaderSreach
   }
+}
+</script>
+<style lang="less">
+body
+{
+    margin:0px;
+    padding:0px;
 }
 </style>
